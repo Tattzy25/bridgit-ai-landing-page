@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight, Search, Sparkles, Loader2 } from "lucide-react";
+import Image from "next/image";
 
 interface HeroSearchBarProps {
   onSubmit: (url: string) => void;
@@ -26,11 +27,11 @@ export function HeroSearchBar({ onSubmit, isLoading }: HeroSearchBarProps) {
   };
 
   return (
-    <div className="max-w-4xl mx-auto mb-20">
+    <div className="max-w-4xl mx-auto mb-8">
       <div className="relative group">
-        <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-500 opacity-60 blur-md group-hover:opacity-80 transition-opacity duration-500 animate-pulse-soft" />
+        <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-500 opacity-40 blur-sm group-hover:opacity-60 transition-opacity duration-500 animate-pulse-soft" />
         
-        <div className="absolute -inset-[3px] rounded-2xl overflow-hidden">
+        <div className="absolute -inset-[2px] rounded-2xl overflow-hidden">
           <div 
             className="absolute inset-0 animate-border-rotate"
             style={{
@@ -39,14 +40,29 @@ export function HeroSearchBar({ onSubmit, isLoading }: HeroSearchBarProps) {
           />
         </div>
         
-        <div className="relative rounded-xl bg-background m-[3px]">
-          <div className="relative flex items-center p-1.5">
-            <div className="absolute left-6 z-10">
-              <div className="relative">
-                <Search className="w-7 h-7 text-sky-500" />
-                <Sparkles className="w-3.5 h-3.5 text-sky-400 absolute -top-1 -right-1.5" />
-                <div className="absolute inset-0 w-7 h-7 bg-sky-400 rounded-full blur-md opacity-50" />
-              </div>
+        <div className="relative rounded-xl bg-background m-[2px]">
+          <div className="relative flex items-center p-1.5 h-20 sm:h-24">
+            <div className="absolute left-4 z-10 h-[calc(100%-6px)] py-[3px]">
+              <Image
+                src="https://aogjrgyogk0skpah.public.blob.vercel-storage.com/Untitled%20design%20%289%29.png"
+                alt="Bridgit AI"
+                width={80}
+                height={80}
+                className="h-full w-auto object-contain"
+              />
+            </div>
+            
+            <div className="absolute left-24 z-10">
+              <Search className="w-9 h-9 text-transparent bg-gradient-to-br from-sky-400 to-blue-600 bg-clip-text stroke-[url(#search-gradient)]" style={{ stroke: 'url(#search-gradient)' }} />
+              <svg width="0" height="0">
+                <defs>
+                  <linearGradient id="search-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#38bdf8" />
+                    <stop offset="100%" stopColor="#2563eb" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <Sparkles className="w-4 h-4 text-sky-400 absolute -top-1.5 -right-2" />
             </div>
             
             <Input
@@ -55,7 +71,7 @@ export function HeroSearchBar({ onSubmit, isLoading }: HeroSearchBarProps) {
               onKeyDown={handleKeyDown}
               placeholder="https://yourwebsite.com"
               disabled={isLoading}
-              className="h-20 sm:h-24 text-xl sm:text-2xl md:text-3xl pl-16 sm:pl-18 pr-52 sm:pr-64 border-0 bg-transparent shadow-none focus-visible:ring-0 placeholder:text-muted-foreground/50 disabled:opacity-50"
+              className="h-full text-xl sm:text-2xl md:text-3xl pl-28 sm:pl-32 pr-52 sm:pr-64 border-0 bg-transparent shadow-none focus-visible:ring-0 placeholder:text-muted-foreground/50 disabled:opacity-50"
             />
             
             <div className="absolute right-4 sm:right-5">

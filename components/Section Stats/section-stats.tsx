@@ -10,13 +10,13 @@ export function SectionStats() {
   ];
 
   return (
-    <section className="py-8 px-4 sm:px-6 lg:px-8">
+    <section className="px-4 sm:px-6 lg:px-8 -mt-4">
       <div className="max-w-4xl mx-auto flex justify-center">
         <StatsCarouselCount
           stats={stats}
           title=""
           className="h-[380px]"
-          cardClassName="min-w-[280px] sm:min-w-[320px] p-8 sm:p-10"
+          cardClassName="min-w-[320px] sm:min-w-[380px] p-10 sm:p-12"
         />
       </div>
     </section>
